@@ -14,61 +14,25 @@ import {
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({data}) => {
-    let items = "";
-    if(Array.isArray(data)) {
-        items = (
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                {data.map((row) => (
-                    <ListItem key={row.id}>
-                        <ListItemAvatar>
-                        <Avatar>
-                            <img alt="" src={row.photo} />
-                        </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                            primary={row.name}
-                            secondary={
-                                <>
-                                     <Typography variant="span">
-                                        {row.phone}
-                                     </Typography><br/>
-                                     <Typography variant="span">
-                                        {row.email}
-                                     </Typography>
-                                </>
-                            } />
-                    </ListItem>
-                ))}
-            </List>
-        );
-    } else {
-        items = (
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                <ListItem key={data.id}>
-                    <ListItemAvatar>
-                    <Avatar>
-                        <img alt="" src={data.photo} />
-                    </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText
-                        primary={data.name}
-                        secondary={
-                            <>
-                                <Typography variant="span">
-                                {data.phone}
-                                </Typography><br/>
-                                <Typography variant="span">
-                                {data.email}
-                                </Typography>
-                            </>
-                        } />
-                </ListItem>
-            </List>
-        );
-    }
+
     // Contact berisi foto, nama, telepon, dan email
     return (
-        <>{items}</>
+        <>
+            <ListItem>
+                <ListItemAvatar>
+                    <Avatar src={data.photo}></Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                    primary={data.name}
+                    secondary={
+                        <Typography>
+                            {data.phone} <br/>
+                            {data.email}
+                        </Typography>
+                    }
+                />
+            </ListItem>
+        </>
     );
 };
 
