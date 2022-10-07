@@ -35,7 +35,7 @@ const App = () => {
               </td>
               <td style={{ width: '50%', verticalAlign: 'top' }}>
                 {
-                  contacts.map(data => (
+                  getContacts.map(data => (
                     <Contact data={data} key={data.phone} />
                   ))
                 }
