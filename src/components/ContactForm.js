@@ -33,9 +33,9 @@ const ContactForm = ({addContact}) => {
                     <CardContent>
                         <form onSubmit={onSubmit}>
                             <TextField fullWidth id="name" label="name" value={getNewContact.name} onChange={(len) => onChange('name', len.target.value)}></TextField>
-                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="phone" value={getNewContact.phone} onChange={(len) => handleChange('phone', len.target.value)}></TextField>
-                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="email" value={getNewContact.email} onChange={(len) => handleChange('email', len.target.value)}></TextField>
-                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="photo" value={getNewContact.photo} onChange={(len) => handleChange('photo', len.target.value)}></TextField>
+                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="phone" value={getNewContact.phone} onChange={(len) => onChange('phone', len.target.value)}></TextField>
+                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="email" value={getNewContact.email} onChange={(len) => onChange('email', len.target.value)}></TextField>
+                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="photo" value={getNewContact.photo} onChange={(len) => onChange('photo', len.target.value)}></TextField>
                         </form>
                     </CardContent>
                     <CardActions>

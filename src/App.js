@@ -35,8 +35,8 @@ const App = () => {
               </td>
               <td style={{ width: '50%', verticalAlign: 'top' }}>
                 {
-                  getContacts.map(data => (
-                    <Contact data={data} key={data.phone} />
+                  getContacts.map(datas => (
+                    <Contact data={datas} key={datas.phone} />
                   ))
                 }
               </td>
@@ -45,6 +45,7 @@ const App = () => {
         </table>
       </section>
     </div>
-  )
-}
+  );
+};
+
 export default App;
