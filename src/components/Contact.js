@@ -2,36 +2,39 @@
 // Contact component dapat berupa MUI ListItem
 // https://mui.com/material-ui/react-list/#folder-list
 import React from 'react';
-import {
-    List,
-    ListItem,
-    ListItemText,
-    ListItemAvatar,
-    Avatar,
-    Typography
-} from '@mui/material';
+import { Divider, Typography } from '@mui/material';
+import { margin, textAlign } from '@mui/system';
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}
-const Contact = ({data}) => {
+const Contact = ({ data }) => { 
 
     // Contact berisi foto, nama, telepon, dan email
+    const {
+        name,
+        phone,
+        email,
+        photo
+    } = data;
+
     return (
         <>
-            <ListItem>
-                <ListItemAvatar>
-                    <Avatar src={data.photo}></Avatar>
-                </ListItemAvatar>
-                <ListItemText
-                    primary={data.name}
-                    secondary={
-                        <Typography>
-                            {data.phone} <br/>
-                            {data.email}
-                        </Typography>
-                    }
-                />
-            </ListItem>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px',}}>
+                <img src={photo} width={80} height={80} style={{ borderRadius: '50%', marginRight: '40px'}} />
+                <div style={{ textAlign: 'left'}}>
+                    <Typography variant='body1' component='div'>
+                        {name}
+                    </Typography>
+                    <Typography variant='subtitle1' component='div' color='text.secondary'>
+                        {phone}
+                    </Typography>
+                    <Typography variant='subtitle1' color='text.secondary'>
+                        {email}
+                    </Typography>
+                </div>
+                <Divider style={{ color: 'blue'}} />
+            </div>
+            <Divider style={{ marginBottom: '20px' }} />
         </>
     );
 };
