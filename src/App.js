@@ -18,7 +18,7 @@ const App = () => {
 
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
   const addContact = (value) => {
-    setContacts([...contacts, value])
+    setContacts([...getContacts, value])
   };
 
   return (

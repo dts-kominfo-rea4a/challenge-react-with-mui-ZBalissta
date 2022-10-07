@@ -3,7 +3,6 @@
 // https://mui.com/material-ui/react-list/#folder-list
 import React from 'react';
 import { Divider, Typography } from '@mui/material';
-import { margin, textAlign } from '@mui/system';
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}

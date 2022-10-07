@@ -31,7 +31,7 @@ const ContactForm = ({addContact}) => {
             <Box>
                 <Card>
                     <CardContent>
-                        <form onSumit={onSubmit}>
+                        <form onSubmit={onSubmit}>
                             <TextField fullWidth id="name" label="name" value={getNewContact.name} onChange={(len) => onChange('name', len.target.value)}></TextField>
                             <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="phone" value={getNewContact.phone} onChange={(len) => handleChange('phone', len.target.value)}></TextField>
                             <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="email" value={getNewContact.email} onChange={(len) => handleChange('email', len.target.value)}></TextField>
