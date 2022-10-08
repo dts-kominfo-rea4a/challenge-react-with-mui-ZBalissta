@@ -1,7 +1,7 @@
 // Terima props lalu tampilkan dalam Contact component
 // Contact component dapat berupa MUI ListItem
 // https://mui.com/material-ui/react-list/#folder-list
-import React from 'react';
+import React, { useState } from 'react';
 import { Divider, Typography } from '@mui/material';
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css

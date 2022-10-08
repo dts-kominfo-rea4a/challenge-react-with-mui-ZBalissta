@@ -14,29 +14,29 @@ const App = () => {
   // https://mui.com/material-ui/react-list/#folder-list
 
   // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
-  const [getContacts, setContacts] = useState(contactJSON);
+  const [contacts, setContacts] = useState(contactJSON);
 
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
-  const addContact = (value) => {
-    setContacts([...getContacts, value])
+  const handleAddContact = (value) => {
+    setContacts([...contacts, value])
   };
 
   return (
     <div className="App">
       <header>
-        <Header sx={{ width: '100%', margin: '2em' }}></Header>
+        <Header sx={{ margin: '15em' }} />
       </header>
       <section>
         <table style={{ width: '100%', margin: '2em' }}>
           <tbody>
             <tr>
               <td style={{ width: '50%', verticalAlign: 'top' }}>
-                <ContactFrom addContact={(value) => addContact(value)} />
+                <ContactFrom addContact={(value) => handleAddContact(value)} />
               </td>
               <td style={{ width: '50%', verticalAlign: 'top' }}>
                 {
-                  getContacts.map(datas => (
-                    <Contact data={datas} key={datas.phone} />
+                  contacts.map(singleData => (
+                    <Contact data={singleData} key={singleData.phone} />
                   ))
                 }
               </td>
