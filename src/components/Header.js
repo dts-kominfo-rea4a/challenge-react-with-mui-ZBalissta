@@ -9,9 +9,10 @@ import { Divider, Typography } from "@mui/material";
 const Header = () => {
   return (
     <>
-      <Typography variant='h2'>Call a Friend</Typography><br/>
-      <Divider component='div'>
-        <Typography variant='h3'>Your friendly contact app</Typography>
+      <Typography variant='h2'>Call a Friend</Typography>
+      <br/>
+      <Divider sx={{marginBottom: '5em',}}>
+        <Typography variant= 'h4'>Your friendly contact app</Typography>
       </Divider>
     </>
   );

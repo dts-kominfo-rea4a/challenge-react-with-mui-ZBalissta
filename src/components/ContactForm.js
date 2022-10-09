@@ -3,46 +3,62 @@
 // dan Card
 // https://mui.com/material-ui/react-card/#basic-card
 import React, { useState } from "react";
-import { Box, TextField, Card, CardContent, CardActions, Button } from '@mui/material';
+import { Box, TextField, Card, Button, List, ListItem, ListItemText } from '@mui/material';
 
-const ContactForm = ({addContact}) => {
-    const dataState = {
-        name: '',
-        phone: '',
-        email: '',
-        photo: ''
+const ContactForm = (props) => {
+    const [inputData, setInputData] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        photo: ""
+    });
+
+    const onChangeHandl = (e) => {
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        setInputData(values => ({...values, [name]: value}));
     };
-    const [newContact, setNewContact] = useState(dataState);
 
-    const onChange = (name, value) => {
-        setNewContact({...newContact, [name]: value });
-    };
-
-    const onSubmit = len => {
-        len.preventDefault();
-        addContact(newContact);
-        setNewContact(dataState);
+    const onSubmitHandl = (e) => {
+        e.preventDefault();
+        props.fnAddContacts(inputData);
+        setInputData(inputData);
     };
     // Form berisi name, phone, email, dan photo url
     // Buatlah state newContact berupa objek sesuai dengan data yang ada
     
     return (
-        <> 
-            <Box>
-                <Card>
-                    <CardContent>
-                        <form onSubmit={onSubmit}>
-                            <TextField fullWidth id="name" label="name" value={newContact.name} onChange={(len) => onChange('name', len.target.value)}></TextField>
-                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="phone" value={newContact.phone} onChange={(len) => onChange('phone', len.target.value)}></TextField>
-                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="email" value={newContact.email} onChange={(len) => onChange('email', len.target.value)}></TextField>
-                            <TextField fullWidth sx={{ marginTop: '0.5em' }} id="name" label="photo" value={newContact.photo} onChange={(len) => onChange('photo', len.target.value)}></TextField>
-                        </form>
-                    </CardContent>
-                    <CardActions>
-                        <Button type="submit" sx={{ marginTop: '0.5em' }} variant="outlined">Add Contact</Button>
-                    </CardActions>
-                </Card>
-            </Box>
+        <>
+        <Card variant="outlined" sx={{width: '60%', marginLeft:'10%'  , p: 2, bgcolor: '#fffde7' }}> 
+            <form action="" onSubmit={onSubmitHandl} >
+                <List >
+                    <ListItem>
+                        <ListItemText>
+                            <TextField fullWidth sx={{ m: 1 }} variant="filled" id="standard-basic" label="Name"  value={inputData.name} name="name" onChange={onChangeHandl} />
+                        </ListItemText>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText>
+                            <TextField fullWidth sx={{ m: 1 }} variant="filled" id="standard-basic" label="Phone"  value={inputData.phone} name="phone" onChange={onChangeHandl} />
+                        </ListItemText>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText>
+                            <TextField fullWidth sx={{ m: 1 }} variant="filled" id="standard-basic" label="Email" value={inputData.email} name="email" onChange={onChangeHandl} />
+                        </ListItemText>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText>
+                            <TextField fullWidth sx={{ m: 1 }} variant="filled" id="standard-basic" label="Photo URL"  value={inputData.photo} name="photo" onChange={onChangeHandl} />
+                        </ListItemText>
+                    </ListItem>
+                </List>
+                <Box display="flex" justifyContent="flex-start" alignItems="flex-start">
+                <Button type="submit">ADD NEW</Button>
+                </Box>
+            </form>
+        </Card>
         </>
     );
 };
